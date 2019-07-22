@@ -5,11 +5,13 @@ window.onload = function() {
   var menu = document.getElementsByClassName('menu')[0];
   var menuTest = document.getElementById('menu-icon');
   var menuTxt = document.getElementsByClassName('menu-text')[0];
+  var circles = document.getElementsByClassName('circles')[0];
 
 
   menu.addEventListener('click', function() {
     navbar.classList.toggle('navbar-active');
     menuTest.classList.toggle('close-icon');
+    circles.classList.toggle('visibility');
     if(menuTxt.innerHTML == 'MENU') {
       menuTxt.innerHTML = 'CLOSE';
       menuTxt.style.color = '#fff';
@@ -66,7 +68,7 @@ window.onload = function() {
             sideBtns[j].classList.add('side-btn-active');
           } else if(offset == height && footer.id == sideBtns[j].dataset.id) {
             sideBtns[j].classList.add('side-btn-active');
-            framework.classList.remove('side-btn-active');
+            sideBtns[sideBtns.length - 2].classList.remove('side-btn-active');
           } else {
             sideBtns[j].classList.remove('side-btn-active');
           }
@@ -124,33 +126,89 @@ window.onload = function() {
       }
     })()
   }
+
+  window.onclick = function(e) {
+
+    var section = document.getElementsByTagName('section');
+    var circle = document.getElementsByClassName('circle');
+    var proba = document.getElementsByClassName('proba');
+
+    for(var i = 0; i < proba.length; i++) {
+
+      proba[i].onclick = function() {
+        for(var j = 0; j < section.length; j++) {
+          if(e.target.dataset.id == section[j].id) {
+            console.log(section[j]);
+            console.log(document.body);
+            console.log(document.documentElement);
+            scrollTo(section[j], -100, 1200);
+          }
+        }
+      }
+    }
+  }
+
+  function scrollTo(element, to, duration) {
+    console.log(element);
+    console.log(to);
+    console.log(duration);
+    var start = element.scrollTop,
+        change = to - start,
+        currentTime = 0,
+        increment = 20;
+
+        console.log(start);
+        console.log(change);
+
+    var animateScroll = function(){
+        currentTime += increment;
+        var val = Math.easeInOutQuad(currentTime, start, change, duration);
+        element.scrollTop = val;
+        if(currentTime < duration) {
+            setTimeout(animateScroll, increment);
+        }
+    };
+    animateScroll();
+  }
+
+  //t = current time
+  //b = start value
+  //c = change in value
+  //d = duration
+  Math.easeInOutQuad = function (t, b, c, d) {
+  t /= d/2;
+  if (t < 1) return c/2*t*t + b;
+  t--;
+  return -c/2 * (t*(t-2) - 1) + b;
+  };
 }
 
  // -- Scroll --
 
-function jumpTo() {
+// function jumpTo() {
 
-  window.onclick = function(e) {
+//   window.onclick = function(e) {
 
-    var hero = document.getElementById('hero');
-    var results = document.getElementById('results');
-    var chairman = document.getElementById('chairman');
-    var strategy = document.getElementById('strategy');
-    var framework = document.getElementById('framework');
-    var footer = document.getElementById('footer');
+//     var hero = document.getElementById('hero');
+//     var results = document.getElementById('results');
+//     var chairman = document.getElementById('chairman');
+//     var strategy = document.getElementById('strategy');
+//     var framework = document.getElementById('framework');
+//     var footer = document.getElementById('footer');
 
-    if(hero.id == e.target.dataset.id) {
-      hero.scrollIntoView({behavior: 'smooth', block: 'end'});
-    } else if(results.id == e.target.dataset.id) {
-      results.scrollIntoView({behavior: 'smooth', block: 'end'});
-    } else if(chairman.id == e.target.dataset.id) {
-      chairman.scrollIntoView({behavior: 'smooth', block: 'end'});
-    } else if(strategy.id == e.target.dataset.id) {
-      strategy.scrollIntoView({behavior: 'smooth', block: 'start'});
-    } else if(framework.id == e.target.dataset.id) {
-      framework.scrollIntoView({behavior: 'smooth', block: 'start'});
-    }else if(footer.id == e.target.dataset.id) {
-      footer.scrollIntoView({behavior: 'smooth', block: 'end'});
-    }
-  }
-}
+//     if(hero.id == e.target.dataset.id) {
+//       hero.scrollIntoView({behavior: 'smooth', block: 'end'});
+//     } else if(results.id == e.target.dataset.id) {
+//       results.scrollIntoView({behavior: 'smooth', block: 'end'});
+//     } else if(chairman.id == e.target.dataset.id) {
+//       chairman.scrollIntoView({behavior: 'smooth', block: 'end'});
+//     } else if(strategy.id == e.target.dataset.id) {
+//       strategy.scrollIntoView({behavior: 'smooth', block: 'start'});
+//     } else if(framework.id == e.target.dataset.id) {
+//       framework.scrollIntoView({behavior: 'smooth', block: 'start'});
+//     }else if(footer.id == e.target.dataset.id) {
+//       footer.scrollIntoView({behavior: 'smooth', block: 'end'});
+//     }
+//   }
+// }
+

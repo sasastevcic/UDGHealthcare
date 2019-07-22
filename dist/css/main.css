@@ -151,6 +151,9 @@ table {
 .display-none {
   display: none; }
 
+.visibility {
+  visibility: hidden; }
+
 .flex-equal-width {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 50%;
@@ -1348,7 +1351,9 @@ table {
 
 .footer {
   position: relative;
-  padding: 99px 0 257px; }
+  padding: 99px 0 257px;
+  background-repeat: no-repeat;
+  background-position: top left; }
   .footer .headings {
     letter-spacing: -2.1px; }
   .footer .bottom-line {
