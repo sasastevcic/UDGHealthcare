@@ -1,0 +1,102 @@
+.hero {
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  padding: 210px 0 509px;
+  p {
+    margin-top: 4px;
+  }
+  .download {
+    margin: 21px 0 0 19px;
+  }
+}
+
+// -- Side circle buttons --
+
+.circles {
+  position: fixed;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.circle {
+  @include hover {
+    background-color: $green;
+  }
+  margin-bottom: 5px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid $text-color-main;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+// -- Move down link --
+
+.explore {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 86px;
+  overflow: hidden;
+  p {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  img {
+    margin: 14px 22px 0;
+  }
+}
+
+// -- Media Queries --
+
+@include tablet {
+  .hero {
+    background-position-x: left;
+    padding: 1px 0 396px;
+    .container {
+      padding-top: 320px;
+      p {
+        font-size: 14px;
+        margin-top: 14px;
+        line-height: 5.5px;
+      }
+      .download {
+        margin-top: 28px;
+      }
+    }
+    .col-xl-offset-6 {
+      padding-left: 10px;
+    }
+    .hero-heading {
+      padding-right: 10px;
+      font-size: 29px;
+    }
+  }
+}
+
+@include mobile {
+  .hero {
+    background-position: left top;
+    padding: 1px 0 53px;
+    .container {
+      padding-top: 334px;
+      .col-xl-offset-6 {
+        padding-left: 0;
+      }
+    }
+    .explore {
+      height: 47px;
+      p {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+$grid-sm: 480;
+$grid-md: 768;
+$grid-lg: 992;
+$grid-xl: 1200;
+
+$gap: 15px;
+
+$grid-cols: 12;
+
+.container {
+  padding: 0 $gap;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gap;
+  margin-right: -$gap;
+}
+
+[class^='col-'] {
+  padding-left: $gap;
+  padding-right: $gap;
+}
+
+@mixin create-mq($breakpoint) {
+  @if($breakpoint == 0) {
+    @content;
+  } @else {
+    @media screen and (max-width: $breakpoint * 1px) {
+      @content;
+    }
+  }
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-mq($breakpoint) {
+    .col-#{$modifier}-offset-0 {
+      margin-left: 0;
+    }
+    @for $i from 1 through $grid-cols {
+      .col-#{$modifier}-#{$i} {
+        flex: 0 0 (100 / ($grid-cols / $i) ) * 1%;
+        max-width: (100 / ($grid-cols / $i) ) * 1%;
+      }
+      .col-#{$modifier}-offset-#{$i} {
+        margin-left: (100 / ($grid-cols / $i)) * 1%;
+      }
+    }
+  }
+}
+
+@for $i from 1 through $grid-cols {
+  .col-#{$i} {
+    flex: 0 0 (100 / ($grid-cols / $i) ) * 1%;
+    max-width: (100 / ($grid-cols / $i) ) * 1%;
+  }
+}
+
+/* Mobile first */
+//$map-grid-props: ('sm': 0, 'md': $grid-md, 'lg': $grid-lg, 'xl': $grid-xl);
+
+/* Desktop first */
+$map-grid-props: ('xl': 0, 'lg': $grid-lg, 'md': $grid-md, 'sm': $grid-sm);
+
+@each $modifier , $breakpoint in $map-grid-props {
+  @include create-col-classes($modifier, $grid-cols, $breakpoint);
+}

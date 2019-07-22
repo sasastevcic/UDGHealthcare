@@ -1,0 +1,179 @@
+.header {
+  padding: 50px 50px 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.header-wrapper {
+  margin: 0 auto;
+}
+
+.header-fixed {
+  background-color: $grey;
+  padding: 23px 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+// -- Menu Button --
+
+.menu {
+  width: 37px;
+  position: absolute;
+  right: 50px;
+  z-index: 11;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+    transition: all .2s;
+  }
+  .menu-text {
+    font-size: 11px;
+    margin: -3px 2px;
+    letter-spacing: -.5px;
+  }
+  .close-text {
+    color: $white;
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+}
+
+.menu-icon:after,
+.menu-icon:before,
+.menu-icon .scale-zero {
+  background-color: $green;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  height: 2px;
+  margin: 2px 0 12px;
+  transition: all .2s ease-in-out;
+}
+
+.close-icon:before {
+  transform: translateY(15px) rotate(135deg);
+}
+
+.close-icon:after {
+  transform: translateY(-13px) rotate(-135deg);
+}
+
+.close-icon .scale-zero {
+  transform: scale(0);
+}
+
+.close-icon:after,
+.close-icon:before,
+.close-icon .scale-zero {
+  content: '';
+  background-color: $white;
+  margin-right: -4.4px;
+  z-index: 11;
+}
+
+// -- Navigation --
+
+.navbar {
+  display: none;
+  padding: 50px 50px 0;
+  background-color: $orange;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+}
+
+.navbar-active {
+  display: block;
+}
+
+.nav-wrapper {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.nav-logo {
+  padding: 29px 0 13px 36px;
+}
+
+.nav-wrapper {
+  h2 {
+    font-size: 42px;
+    color: $white;
+    font-weight: 400;
+    letter-spacing: -1.1px;
+    padding-left: 2px;
+  }
+}
+
+.nav-list {
+  margin-top: 30px;
+  li {
+    margin: 7px auto;
+    width: 370px;
+    height: 64px;
+    border: 1px solid $white;
+    padding: 22px 0;
+  }
+}
+
+.nav-link {
+  color: $white;
+  font-size: 18px;
+  letter-spacing: -.3px;
+  text-decoration: none;
+  padding: 20px 90px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// -- Media Queries --
+
+@include tablet {
+  .header {
+    padding: 50px 22px 0;
+  }
+  .header-fixed {
+    padding: 23px 22px;
+  }
+  .navbar {
+    padding: 50px 22px 0;
+  }
+  .menu {
+    .menu-text {
+      letter-spacing: .2px;
+      font-size: 12px;
+      margin: -3px -2px;
+    }
+  }
+}
+
+@include mobile {
+  .header {
+    padding: 22px 20px 0;
+  }
+  .header-fixed {
+    padding: 22px 20px;
+  }
+  .navbar {
+    padding: 50px 20px 0;
+  }
+  .menu {
+    .menu-text {
+      letter-spacing: .5px;
+    }
+  }
+  .logo {
+    img {
+      width: 212px;
+    }
+  }
+}

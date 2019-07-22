@@ -1,0 +1,46 @@
+@mixin clearfix {
+  &:before, &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin hover {
+  &:hover {
+    transition: ease-in-out 300ms;
+    @content;
+  }
+}
+
+@mixin xsSize {
+  @media screen and (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+// @mixin mobile {
+//   @media screen and (max-width: $tablet-width) {
+//     @content;
+//   }
+// }
+
+@mixin mobile {
+  @media screen and (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin xlSize {
+  @media screen and (max-width: $xl-size) {
+    @content;
+  }
+}

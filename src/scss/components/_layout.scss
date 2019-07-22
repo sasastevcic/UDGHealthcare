@@ -1,0 +1,25 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@include tablet {
+  div.wrapper {
+    max-width: 754px;
+  }
+  section {
+    padding: 0 22px;
+  }
+}
+
+@include mobile {
+  div.wrapper {
+    max-width: 310px;
+  }
+  section {
+    padding: 0 20px;
+  }
+  .fill-space {
+    height: 561px;
+  }
+}

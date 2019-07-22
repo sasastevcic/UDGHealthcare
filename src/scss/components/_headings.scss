@@ -1,0 +1,85 @@
+// -- Global --
+
+.headings {
+  font-family: $font-headings;
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.sup-headings {
+  font-size: 18px;
+}
+
+.download {
+  font-size: 14px;
+  a {
+    text-decoration: underline;
+    font-weight: bold;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// -- Results Section--
+
+.results_grid-text-large {
+  font-size: 48px;
+}
+
+.results_grid-text-highlights {
+  font-size: 25px;
+}
+
+.results-text {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.results-headings {
+  letter-spacing: -1.9px;
+  margin-bottom: 10px;
+}
+
+.results_grid-border-bottom {
+  border-bottom: 1px solid $text-color-main;
+}
+
+// -- Chairman Section --
+
+.chairman-text {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+// -- Strategy Section --
+
+.strategy_value-text,
+.strategy_growing-text {
+  font-size: 15px;
+  line-height: 24px;
+  padding: 23px 19px;
+  width: 100%;
+  letter-spacing: .5px;
+}
+
+.strategy_growing-text {
+  letter-spacing: .9px;
+  font-size: 15px;
+}
+
+.strategy_value-footer-text,
+.strategy_growing-footer-text {
+  font-size: 14px;
+  padding-top: 14px;
+  letter-spacing: -.2px;
+  line-height: 17px;
+}
+
+.strategy_value-footer-heading,
+.strategy_growing-footer-heading {
+  font-weight: bold;
+  font-size: 17px;
+  letter-spacing: .5px;
+}
