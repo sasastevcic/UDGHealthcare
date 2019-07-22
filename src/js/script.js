@@ -129,36 +129,29 @@ window.onload = function() {
 
   window.onclick = function(e) {
 
-    var section = document.getElementsByTagName('section');
-    var circle = document.getElementsByClassName('circle');
     var proba = document.getElementsByClassName('proba');
+    var section = document.getElementsByTagName('section');
 
     for(var i = 0; i < proba.length; i++) {
+      if(e.target.dataset.id === proba[i].dataset.id) {
+        proba[i].onclick = callProba();
+      }
+    }
 
-      proba[i].onclick = function() {
-        for(var j = 0; j < section.length; j++) {
-          if(e.target.dataset.id == section[j].id) {
-            console.log(section[j]);
-            console.log(document.body);
-            console.log(document.documentElement);
-            scrollTo(section[j], -100, 1200);
-          }
+    function callProba() {
+      for(var k = 0; k < section.length; k++) {
+        if(e.target.dataset.id === section[k].id) {
+          scrollTo(document.documentElement, section[k].offsetTop - 100, 1200);
         }
       }
     }
   }
 
   function scrollTo(element, to, duration) {
-    console.log(element);
-    console.log(to);
-    console.log(duration);
     var start = element.scrollTop,
         change = to - start,
         currentTime = 0,
         increment = 20;
-
-        console.log(start);
-        console.log(change);
 
     var animateScroll = function(){
         currentTime += increment;
